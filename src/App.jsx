@@ -9,6 +9,7 @@ function App() {
 
   const handleAddArticle = (e) => {
     e.preventDefault();
+
     if (newTitle.trim() === '') return; // Avoid adding empty titles
 
     const newArticle = {
@@ -20,6 +21,12 @@ function App() {
     setArticles([...articles, newArticle]);
     setNewTitle(''); //this clears the input field
   };
+
+  const handleDeleteArticle = (id) => {
+    setArticles(articles.filter((article) => (article.id !== id)))
+  }
+
+
   return (
     <>
       {/* header */}
@@ -31,7 +38,7 @@ function App() {
         <p className='fw-light fs-4 m-0'>{currentDate.toLocaleDateString()}</p>
       </header>
 
-      <hr className='mx-4 bg-light' style={{ height: '5px' }} />
+      <hr className='mx-5 bg-light' style={{ height: '5px' }} />
 
       {/* main */}
       <main className='m-4'>
@@ -64,13 +71,17 @@ function App() {
               .map((article) => (
                 <div className="col" key={article.id}>
                   <div className="card h-100 bg-primary border-0 rounded">
-                    <div className="card-body d-flex flex-column">
+                    <div className="card-body d-flex justify-content-between align-items-center">
                       <h5
-                        className="card-title text-light text-center text-truncate fs-5"
+                        className="card-title text-light text-truncate fs-5"
                         title={article.title}
                       >
                         {article.title}
                       </h5>
+
+                      <button className="btn btn-danger d-flex align-items-center justify-content-center p-2" onClick={() => handleDeleteArticle(article.id)}>
+                        <i className="fas fa-trash text-light"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
