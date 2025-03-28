@@ -8,7 +8,9 @@ const articles = [
     { id: 7, title: "Understanding Blockchain", description: "An introduction to blockchain technology and its applications." },
     { id: 8, title: "Cooking on a Budget", description: "Delicious and affordable recipes for everyday meals." },
     { id: 9, title: "Fitness for Beginners", description: "A beginner's guide to starting your fitness journey." },
-    { id: 10, title: "The Art of Photography", description: "Techniques and tips for capturing stunning photographs." }
+    { id: 10, title: "The Art of Photography", description: "Techniques and tips for capturing stunning photographs." },
+    { id: 11, title: "Mindfulness and Meditation", description: "How to practice mindfulness and improve mental well-being." },
+    { id: 12, title: "The Evolution of Space Exploration", description: "A look at humanity's journey into space and future possibilities." }
 ];
 
 export default articles;
