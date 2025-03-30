@@ -70,17 +70,17 @@ function App() {
               .reverse() // Reverse the order of the articles
               .map((article) => (
                 <div className="col" key={article.id}>
-                  <div className="card h-100 bg-primary border-0 rounded">
+                  <div className="card h-100 bg-light border-0 rounded">
                     <div className="card-body d-flex justify-content-between align-items-center">
-                      <h5
-                        className="card-title text-light text-truncate fs-5"
-                        title={article.title}
-                      >
-                        {article.title}
-                      </h5>
+                      <input
+                        type="text"
+                        className="form-control bg-white text-dark border-1 fs-5"
+                        value={article.title} // Bind the input to the article's title
+                        onChange={(e) => handleEditArticle(article.id, e.target.value)} // Update the title
+                      />
 
-                      <button className="btn btn-danger d-flex align-items-center justify-content-center p-2" onClick={() => handleDeleteArticle(article.id)}>
-                        <i className="fas fa-trash text-light"></i>
+                      <button className="btn btn-outline-danger d-flex align-items-center border-2 justify-content-center p-2 ms-2" onClick={() => handleDeleteArticle(article.id)}>
+                        <i className="fas fa-trash "></i>
                       </button>
                     </div>
                   </div>
