@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import articlesData from './components/articles_list';
+import articlesData from './data/articles_list';
 
 function App() {
 
@@ -20,11 +20,23 @@ function App() {
 
     setArticles([...articles, newArticle]);
     setNewTitle(''); //this clears the input field
+
+    console.log(articles);
   };
 
   const handleDeleteArticle = (id) => {
     setArticles(articles.filter((article) => (article.id !== id)))
+    console.log(articles);
   }
+
+  const handleEditArticle = (id, value) => {
+    setArticles((oldArticles) =>
+      oldArticles.map((article) =>
+        article.id === id ? { ...article, title: value } : article
+      )
+    );
+    console.log(articles);
+  };
 
 
   return (
@@ -67,7 +79,7 @@ function App() {
 
             {articles
               .slice() // Create a copy of the articles array
-              .reverse() // Reverse the order of the articles
+              .reverse() // Reverses the order of the articles because I wanted to display the newest on top
               .map((article) => (
                 <div className="col" key={article.id}>
                   <div className="card h-100 bg-light border-0 rounded">
